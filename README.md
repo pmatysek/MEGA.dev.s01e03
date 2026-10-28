@@ -11,18 +11,19 @@ incident turned out to be, and why we decided what we decided.
 ## What's here
 
 ```
-src/routes/kb/      the pages (.svx: Markdown with components)
-  triage/           how the desk handles incoming reports
-  incidents/        one page per big ticket
-  decisions/        numbered decision records
-src/lib/kb/         components and the logic they run
-src/lib/layouts/    the frame every page shares
-src/lib/data/       exports from the ticket system
+apps/kb/src/routes/kb/      the pages (.svx: Markdown with components)
+  triage/                   how the desk handles incoming reports
+  incidents/                one page per big ticket
+  decisions/                numbered decision records
+apps/kb/src/lib/kb/          components and the logic they run
+apps/kb/src/lib/layouts/     the frame every page shares
+apps/kb/src/lib/data/        exports from the ticket system
+apps/kb/preview/4471.html    rendered view of incident #4471
 ```
 
 ## Conventions
 
-- Words in the page, logic in `src/lib` (imported as `#lib/…`). A number that can be computed belongs in a component.
+- Words in the page, logic in `apps/kb/src/lib` (imported as `#lib/…`). A number that can be computed belongs in a component.
 - Every page starts with frontmatter: `title`, `owner`, `status`, `reviewed`.
 - A decision is never edited after it is accepted. A new record replaces it.
 - A page you add is signed: its frontmatter carries your `signature` and it ends with `<RenderStamp {signature} />`, so the desk knows who wrote it.
