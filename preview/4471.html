@@ -42,8 +42,8 @@
     <main>
       <p>Since April, people have reported bookings landing on the wrong day. The desk merged overlapping export rows into #4471.</p>
       <p>The report IDs must be deduplicated before counting. The cause follows the tenant locale, booking form, and channel—not the intake tag, which is only a guess.</p>
-      <p>Separate issues now track the day-first parser failure and the booking-v3 date-hint failure: <a href="https://github.com/pmatysek/MEGA.dev.s01e03/issues/1">parser issue</a> and <a href="https://github.com/pmatysek/MEGA.dev.s01e03/issues/2">form-hint issue</a>.</p>
-      <aside class="callout">Known, but not one fix: track the parser and form-hint failures separately.</aside>
+      <p>Separate issues track the day-first parser failure and the booking-v3 date-hint failure: <a href="https://github.com/pmatysek/MEGA.dev.s01e03/issues/1">parser issue</a> and <a href="https://github.com/pmatysek/MEGA.dev.s01e03/issues/2">form-hint issue</a>.</p>
+      <aside class="callout">Parser fixed. The booking-v3 form-hint issue will not be fixed because that form has been retired.</aside>
       <h2>Causes and coverage</h2>
       <p class="sum"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p>
       <table>
@@ -53,6 +53,11 @@
           <tr><td><code>hint</code></td><td>33</td><td class="tags">hint ×18 · parser ×15</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td><a href="https://github.com/pmatysek/MEGA.dev.s01e03/issues/2">Issue #2</a></td></tr>
         </tbody>
       </table>
+      <h2>Engineering update</h2>
+      <ul>
+        <li>Parser: fixed with <code>fix(dates): parse dd/mm for eu locales</code> (issue #1).</li>
+        <li>Hint: not planned because the booking-v3 form was retired (issue #2).</li>
+      </ul>
       <h2>Queue history</h2>
       <figure>
         <svg viewBox="0 0 648 140" role="img" aria-label="reports received and merged into #4471, per week">

@@ -18,15 +18,20 @@ Since April, people have reported bookings landing on the wrong day. The desk me
 
 The report IDs must be deduplicated before counting. The cause follows the tenant locale, booking form, and channel—not the intake tag, which is only a guess.
 
-Separate issues now track the day-first parser failure and the booking-v3 date-hint failure: [parser issue](https://github.com/pmatysek/MEGA.dev.s01e03/issues/1) and [form-hint issue](https://github.com/pmatysek/MEGA.dev.s01e03/issues/2).
+Separate issues track the day-first parser failure and the booking-v3 date-hint failure: [parser issue](https://github.com/pmatysek/MEGA.dev.s01e03/issues/1) and [form-hint issue](https://github.com/pmatysek/MEGA.dev.s01e03/issues/2).
 
 <Callout>
-Known, but not one fix: track the parser and form-hint failures separately.
+Parser fixed. The booking-v3 form-hint issue will not be fixed because that form has been retired.
 </Callout>
 
 ## Causes and coverage
 
 <CauseTable ticket={4471} />
+
+## Engineering update
+
+- Parser: fixed with `fix(dates): parse dd/mm for eu locales` (issue #1).
+- Hint: not planned because the booking-v3 form was retired (issue #2).
 
 ## Queue history
 
