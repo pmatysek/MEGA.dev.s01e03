@@ -1,0 +1,41 @@
+---
+layout: runbook
+title: '#4471 · date-input failures'
+owner: support desk
+status: known
+reviewed: 2026-10-28
+signature: "OpenAI Codex for Paweł Matysek"
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+Since April, people have reported bookings landing on the wrong day. The desk merged overlapping export rows into #4471.
+
+The report IDs must be deduplicated before counting. The cause follows the tenant locale, booking form, and channel—not the intake tag, which is only a guess.
+
+Separate issues now track the day-first parser failure and the booking-v3 date-hint failure: [parser issue](https://github.com/pmatysek/MEGA.dev.s01e03/issues/1) and [form-hint issue](https://github.com/pmatysek/MEGA.dev.s01e03/issues/2).
+
+<Callout>
+Known, but not one fix: track the parser and form-hint failures separately.
+</Callout>
+
+## Causes and coverage
+
+<CauseTable ticket={4471} />
+
+## Queue history
+
+<QueueTimeline ticket={4471} />
+
+## Triage notes
+
+- The parser cause covers dates interpreted month-first for day-first tenants.
+- The form-hint cause covers booking-v3 form reports where the MM/DD/YYYY hint conflicts with the day-first locale.
+- A one-day move is not automatically a timezone issue; the desk's noted reports remain filed by tenant cause.
+
+<RenderStamp {signature} />

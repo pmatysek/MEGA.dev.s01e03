@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>#4471 · date-input failures · support kb</title>
+  <style>
+    :root { --bg:#fbfaf7; --fg:#1d1d1b; --muted:#6b6a66; --line:#e3e0d8; --accent:#2f6f5e; --warn:#b4501f; --warn-bg:#fbeee6; --note-bg:#eef5f2; --mono:ui-monospace,'Cascadia Code',Menlo,monospace; }
+    @media (prefers-color-scheme:dark) { :root { --bg:#171716; --fg:#ecebe6; --muted:#9c9a93; --line:#34332f; --accent:#6fbfa6; --warn:#f0905d; --warn-bg:#3a2418; --note-bg:#1d2c27; } }
+    body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,sans-serif; }
+    .kb { max-width:760px; margin:0 auto; padding:2rem 16px 4rem; }
+    .crumb { font:.8rem var(--mono); text-decoration:none; color:var(--muted); }
+    h1 { margin:.25rem 0 .5rem; line-height:1.2; }
+    .meta { display:flex; flex-wrap:wrap; gap:.5rem 1rem; color:var(--muted); font-size:.85rem; margin:0; }
+    .status { border:1px solid var(--line); border-radius:99px; padding:0 .6rem; }
+    table { border-collapse:collapse; width:100%; margin:1rem 0; font-size:.92rem; }
+    th,td { border-bottom:1px solid var(--line); padding:.35rem .5rem; text-align:left; }
+    code { font-family:var(--mono); font-size:.88em; }
+    a { color:var(--accent); }
+    .sum { font-size:1.1rem; }
+    .callout { border-left:4px solid var(--accent); padding:.5rem 1rem; margin:1rem 0; background:var(--note-bg); }
+    .tags,.note,figcaption { color:var(--muted); font-size:.85rem; }
+    svg { width:100%; max-width:640px; }
+    .in { fill:var(--warn); }
+    .merged { fill:var(--accent); }
+    svg text { font:8px var(--mono); fill:var(--muted); text-anchor:middle; }
+    .key { display:inline-block; width:.7em; height:.7em; border-radius:2px; }
+    .key.in { background:var(--warn); }
+    .key.merged { background:var(--accent); }
+    .stamp { margin:2rem 0 0; font:.85rem var(--mono); color:var(--muted); }
+    .stamp b { color:var(--accent); letter-spacing:.04em; }
+    footer { margin-top:3rem; color:var(--muted); font-size:.8rem; border-top:1px solid var(--line); padding-top:1rem; }
+  </style>
+</head>
+<body>
+  <div class="kb">
+    <header>
+      <a class="crumb" href="/kb">support desk · kb</a>
+      <h1>#4471 · date-input failures</h1>
+      <p class="meta"><span>owner <b>support desk</b></span><span class="status">known</span><span>reviewed 2026-10-28 · 0 days ago</span></p>
+    </header>
+    <main>
+      <p>Since April, people have reported bookings landing on the wrong day. The desk merged overlapping export rows into #4471.</p>
+      <p>The report IDs must be deduplicated before counting. The cause follows the tenant locale, booking form, and channel—not the intake tag, which is only a guess.</p>
+      <p>Separate issues now track the day-first parser failure and the booking-v3 date-hint failure: <a href="https://github.com/pmatysek/MEGA.dev.s01e03/issues/1">parser issue</a> and <a href="https://github.com/pmatysek/MEGA.dev.s01e03/issues/2">form-hint issue</a>.</p>
+      <aside class="callout">Known, but not one fix: track the parser and form-hint failures separately.</aside>
+      <h2>Causes and coverage</h2>
+      <p class="sum"><strong>412</strong> reports merged into #4471 · <strong>2</strong> causes</p>
+      <table>
+        <thead><tr><th>cause</th><th>reports</th><th>tagged as</th><th>tenants</th><th>seen</th><th>issue</th></tr></thead>
+        <tbody>
+          <tr><td><code>parser</code></td><td>379</td><td class="tags">parser ×356 · hint ×23</td><td>11</td><td>2026-04-01 → 2026-10-04</td><td><a href="https://github.com/pmatysek/MEGA.dev.s01e03/issues/1">Issue #1</a></td></tr>
+          <tr><td><code>hint</code></td><td>33</td><td class="tags">hint ×18 · parser ×15</td><td>3</td><td>2026-04-17 → 2026-09-22</td><td><a href="https://github.com/pmatysek/MEGA.dev.s01e03/issues/2">Issue #2</a></td></tr>
+        </tbody>
+      </table>
+      <h2>Queue history</h2>
+      <figure>
+        <svg viewBox="0 0 648 140" role="img" aria-label="reports received and merged into #4471, per week">
+          <g transform="translate(0 110) scale(1 -.5291005291)">
+            <rect class="in" x="2" y="0" width="9" height="7"/><rect class="in" x="26" y="0" width="9" height="11"/><rect class="in" x="50" y="0" width="9" height="14"/><rect class="in" x="74" y="0" width="9" height="19"/><rect class="in" x="98" y="0" width="9" height="16"/><rect class="in" x="122" y="0" width="9" height="12"/><rect class="in" x="146" y="0" width="9" height="8"/><rect class="in" x="170" y="0" width="9" height="12"/><rect class="in" x="194" y="0" width="9" height="14"/><rect class="in" x="218" y="0" width="9" height="17"/><rect class="in" x="242" y="0" width="9" height="16"/><rect class="in" x="266" y="0" width="9" height="17"/><rect class="in" x="290" y="0" width="9" height="11"/><rect class="in" x="314" y="0" width="9" height="15"/>
+            <rect class="merged" x="324" y="0" width="9" height="189"/><rect class="in" x="338" y="0" width="9" height="19"/><rect class="merged" x="348" y="0" width="9" height="18"/><rect class="in" x="362" y="0" width="9" height="17"/><rect class="merged" x="372" y="0" width="9" height="18"/><rect class="in" x="386" y="0" width="9" height="15"/><rect class="merged" x="396" y="0" width="9" height="15"/><rect class="in" x="410" y="0" width="9" height="19"/><rect class="merged" x="420" y="0" width="9" height="19"/><rect class="in" x="434" y="0" width="9" height="8"/><rect class="merged" x="444" y="0" width="9" height="8"/><rect class="in" x="458" y="0" width="9" height="15"/><rect class="merged" x="468" y="0" width="9" height="15"/><rect class="in" x="482" y="0" width="9" height="20"/><rect class="merged" x="492" y="0" width="9" height="20"/><rect class="in" x="506" y="0" width="9" height="14"/><rect class="merged" x="516" y="0" width="9" height="14"/><rect class="in" x="530" y="0" width="9" height="21"/><rect class="merged" x="540" y="0" width="9" height="21"/><rect class="in" x="554" y="0" width="9" height="20"/><rect class="merged" x="564" y="0" width="9" height="20"/><rect class="in" x="578" y="0" width="9" height="15"/><rect class="merged" x="588" y="0" width="9" height="15"/><rect class="in" x="602" y="0" width="9" height="25"/><rect class="merged" x="612" y="0" width="9" height="23"/><rect class="in" x="626" y="0" width="9" height="15"/><rect class="merged" x="636" y="0" width="9" height="17"/>
+          </g>
+          <text x="12" y="128">03-30</text><text x="108" y="128">04-27</text><text x="204" y="128">05-25</text><text x="300" y="128">06-22</text><text x="396" y="128">07-20</text><text x="492" y="128">08-17</text><text x="588" y="128">09-14</text>
+        </svg>
+        <figcaption><span class="key in"></span> received · <span class="key merged"></span> merged into #4471 · per week</figcaption>
+      </figure>
+      <p class="note">5 reports read as a one-day move; filed under <code>parser</code> by tenant.</p>
+      <h2>Triage notes</h2>
+      <ul>
+        <li>The parser cause covers dates interpreted month-first for day-first tenants.</li>
+        <li>The form-hint cause covers booking-v3 form reports where the MM/DD/YYYY hint conflicts with the day-first locale.</li>
+        <li>A one-day move is not automatically a timezone issue; the desk's noted reports remain filed by tenant cause.</li>
+      </ul>
+      <p class="stamp">desk ref <b>DR-G3HA-X6M6</b></p>
+    </main>
+    <footer>Pages are written by people. Tables and charts are built from data at render time.</footer>
+  </div>
+</body>
+</html>
