@@ -4,7 +4,7 @@ title: '#4471 · date-input failures'
 owner: support desk
 status: known
 reviewed: 2026-10-28
-signature: "pmatysek"
+signature: "v1.eyJzdWIiOiIxODI5IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMjM4MjgsImV4cCI6MTc5MzMxMDIyOH0.-nw5Fd6JIFmswjeiyCysfPrLLvKdaW6QQsPzPMMTPTU"
 ---
 
 <script>
